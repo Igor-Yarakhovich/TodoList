@@ -8,7 +8,7 @@ import {Menu} from "@material-ui/icons";
 
 export type FilterValuesType = "all" | "active" | "completed"
 
-type TodoListType = {
+export type TodoListType = {
     id: string
     title: string
     filter: FilterValuesType
@@ -66,6 +66,7 @@ const App = () => {
             .map(t => t.id === taskID ? {...t, title} : t)
         setTasks({...tasks})
     }
+
     const changeTodoListFilter = (filter: FilterValuesType, todoListID: string) => {
         setTodoLists(
             todoLists
@@ -111,7 +112,7 @@ const App = () => {
     const todoListComponents = todoLists.map(tl => {
         return (
             <Grid item key={tl.id}>
-                <Paper style={{padding:'10px'}} elevation={5}>
+                <Paper style={{padding: '10px'}} elevation={5}>
                     <TodoList
                         id={tl.id}
                         filter={tl.filter}
