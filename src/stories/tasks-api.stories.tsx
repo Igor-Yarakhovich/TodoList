@@ -45,12 +45,19 @@ export const DeleteTask = () => {
     return <div> {JSON.stringify(state)}</div>
 }
 
-export const PutTask = () => {
+export const UpdateTask = () => {
     const [state, setState] = useState<any>(null)
     const todolistId = "6669c058-d3bf-4786-aed6-9437553a65e8"
-    const taskId = '56e5b01b-49a6-4641-85f1-c8ccef8b374e'
+    const taskId = 'c4d24df4-c3ce-4860-b6d5-ea8c21a57f27'
     useEffect(() => {
-        tasksAPI.putTask(todolistId, taskId, 'GOOD TITLE')
+        tasksAPI.updateTask(todolistId, taskId, {
+            title:"BEST TASK",
+            deadline:'',
+            description:'',
+            priority:12,
+            startDate:'',
+            status:134
+        })
             .then((res)=>{
                 setState(res.data)
             })
