@@ -1,7 +1,6 @@
 import {v1} from 'uuid';
 import {todolistsAPI, TodolistType} from '../api/todolists-api'
 import {Dispatch} from "redux";
-import {addTaskAC, removeTaskAC} from "./tasks-reducer";
 
 export type RemoveTodolistActionType = {
     type: 'REMOVE-TODOLIST',
@@ -125,7 +124,7 @@ export const createTodolistTC = (title: string) => (dispatch: Dispatch) => {
         })
 }
 
-export const updateTodolistTitleTC = (id:string, title:string) => (dispatch: Dispatch) => {
+export const updateTodolistTitleTC = (id: string, title: string) => (dispatch: Dispatch) => {
     todolistsAPI.updateTodolist(id, title)
         .then(res => {
             dispatch(changeTodolistTitleAC(id, title))
